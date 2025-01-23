@@ -21,10 +21,14 @@ export default function Navigation() {
           <ArrowDown />
           Genre
         </Button>
-
-        <Input type="text" placeholder="Search">
-          {/* <Search /> */}
-        </Input>
+        <div className="flex border-solid border-2 rounded-lg items-center">
+          <Search className="pl-1" />
+          <Input
+            type="text"
+            placeholder="Search"
+            className="border-none shadow-none ml-[-8px] focus:outline-none focus-visible:ring-0"
+          />
+        </div>
       </div>
       <Button variant="outline" size="icon" onClick={changeThemeHandler}>
         <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
