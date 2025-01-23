@@ -14,10 +14,10 @@ export default function Navigation() {
   };
 
   return (
-    <div className=" w-[1280px] h-9 flex justify-between items-center">
-      <Image alt={"logo"} width={100} height={100} src={"/Logo.png"} />
+    <div className=" w-[1400px] h-9 flex justify-between items-center px-[80px]">
+      <Image alt={"logo"} width={100} height={100} src={"/Logo.svg"} />
       <div className="flex justify-between items-center gap-2.5">
-        <Button>
+        <Button variant="outline">
           <ArrowDown />
           Genre
         </Button>

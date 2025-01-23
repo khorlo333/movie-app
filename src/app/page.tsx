@@ -43,9 +43,9 @@ export default async function Home() {
   return (
     <div className="flex flex-col justify-center items-center my-5 ">
       <Navigation />
-      <div className="w-[100%] px-[80px] flex justify-between items-center">
+      <div className="w-[1400px] px-[80px] flex justify-between items-center ">
         <h3>Upcoming</h3>
-        <Button>
+        <Button variant="outline">
           See more <ArrowRight />{" "}
         </Button>
       </div>

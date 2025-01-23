@@ -2,16 +2,16 @@ import Image from "next/image";
 
 export default async function Card({ data }: { data: MovieType[] }) {
   return (
-    <div className="flex max-w-[100vw] h-[100vh] px-[80px] flex-wrap gap-5 my-5 ">
+    <div className="flex max-w-[1400px] h-[100vh] px-[80px] flex-wrap justify-between ">
       {data?.slice(0, 10).map((movie: MovieType) => {
         return (
           <div
             key={movie.id}
-            className=" w-[230px] object-contain bg-[#f4f4f5]"
+            className=" w-[230px] object-contain bg-secondary my-5"
           >
             <div className="max-w-[230px] h-[380px] rounded-2 ">
               <img
-                className="w-[100%] h-[340px] object-cover rounded-2  "
+                className="w-[100%] h-[95%] object-cover rounded-2  "
                 src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}
                 alt=""
               />
