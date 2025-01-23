@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default async function Card({ data }: { data: MovieType[] }) {
   return (
-    <div className="flex max-w-[1400px] h-[100vh] px-[80px] flex-wrap gap-5 my-5 ">
+    <div className="flex max-w-[100vw] h-[100vh] px-[80px] flex-wrap gap-5 my-5 ">
       {data?.slice(0, 10).map((movie: MovieType) => {
         return (
           <div

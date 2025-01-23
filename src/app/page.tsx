@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import Card from "./_components/Card";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Navigation from "./_components/NavigationBar";
 
 export default async function Home() {
   const token =
@@ -39,10 +41,13 @@ export default async function Home() {
   const topRatedData = await topRatedResponse.json();
 
   return (
-    <div className="flex flex-col justify-center items-center my-5">
-      <div className="w-[1400px] px-[80px] flex justify-between items-center">
+    <div className="flex flex-col justify-center items-center my-5 ">
+      <Navigation />
+      <div className="w-[100%] px-[80px] flex justify-between items-center">
         <h3>Upcoming</h3>
-        <Button>See more</Button>
+        <Button>
+          See more <ArrowRight />{" "}
+        </Button>
       </div>
       <Card data={upcomingData.results} />
       <h3>Popular</h3>
