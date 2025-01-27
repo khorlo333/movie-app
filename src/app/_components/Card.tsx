@@ -1,11 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Card({ data }: { data: MovieType[] }) {
   return (
     <div className="flex max-w-[1400px] px-[80px] flex-wrap justify-between ">
       {data?.slice(0, 10).map((movie: MovieType) => {
         return (
-          <div
+          <Link
+            href={`/${movie.id}`}
             key={movie.id}
             className=" w-[230px] object-contain bg-secondary my-5"
           >
@@ -30,7 +32,7 @@ export default async function Card({ data }: { data: MovieType[] }) {
               /10
             </p>
             <h3 className="text-[18px]">{movie.original_title}</h3>
-          </div>
+          </Link>
         );
       })}
     </div>

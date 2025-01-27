@@ -3,16 +3,14 @@ import { Input } from "@/components/ui/input";
 import { ArrowDown, Search } from "lucide-react";
 import Image from "next/image";
 import ThemeChanger from "./ThemeChanger";
+import { Genre } from "./Genre";
 
 export default function Navigation() {
   return (
-    <div className=" w-[1400px] h-9 flex justify-between items-center px-[80px]">
+    <div className=" w-[1400px] h-9 flex justify-between items-center px-[80px] m-auto">
       <Image alt={"logo"} width={100} height={100} src={"/Logo.svg"} />
       <div className="flex justify-between items-center gap-2.5">
-        <Button variant="outline">
-          <ArrowDown />
-          Genre
-        </Button>
+        <Genre />
         <div className="flex border-solid border-2 rounded-lg items-center">
           <Search className="pl-1" />
           <Input
