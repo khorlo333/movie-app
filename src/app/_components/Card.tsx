@@ -7,7 +7,7 @@ export default async function Card({ data }: { data: MovieType[] }) {
       {data?.slice(0, 10).map((movie: MovieType) => {
         return (
           <Link
-            href={`/${movie.id}`}
+            href={`/detail/${movie.id}`}
             key={movie.id}
             className=" w-[230px] object-contain bg-secondary my-5"
           >

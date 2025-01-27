@@ -18,3 +18,30 @@ type GenreType = {
   id: number;
   name: string;
 };
+type CrewType = {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: boolean;
+  credit_id: string;
+  department: string;
+  job: string;
+};
+type CastType = {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: boolean;
+  cast_id: number;
+  credit_id: string;
+  character: string;
+  order: number;
+};

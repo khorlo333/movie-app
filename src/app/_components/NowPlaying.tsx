@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayIcon } from "lucide-react";
+import Link from "next/link";
 
 export default async function NowPlaying() {
   const nowPlayingResponse = await fetch(
@@ -29,37 +30,38 @@ export default async function NowPlaying() {
           return (
             <CarouselItem key={data.id} className="w-full">
               <Card className="relative w-full">
-                <CardContent className="w-full">
-                  <Image
-                    width={1000}
-                    height={1000}
-                    className="object-fi h-[620px] w-full relative"
-                    src={
-                      `https://image.tmdb.org/t/p/` +
-                      "original" +
-                      `${data.backdrop_path}`
-                    }
-                    alt={data.original_title}
-                  ></Image>
-                  <div className="absolute left-[140px] bottom-[158px] w-[302px] text-[#FAFAFA] ">
-                    <p className="">Now Playing:</p>
-                    {data.original_title}
-                    <p className="flex text-[16px] items-center gap-1">
-                      <img className="size-7" src="star.svg" alt="" />
-                      <span className="text-[18px] font-bold flex">
-                        {" "}
-                        {data.vote_average.toFixed(1)}
-                      </span>{" "}
-                      /10
-                    </p>
-                    <p className="text-wrap">{data.overview}</p>
-                    <Button variant={"secondary"} className="">
-                      <PlayIcon />
-                      Watch Trailer
-                    </Button>
-                  </div>
-                </CardContent>
-
+                <Link href={`/detail/${data.id}`}>
+                  <CardContent className="w-full">
+                    <Image
+                      width={1000}
+                      height={1000}
+                      className="object-fi h-[620px] w-full relative"
+                      src={
+                        `https://image.tmdb.org/t/p/` +
+                        "original" +
+                        `${data.backdrop_path}`
+                      }
+                      alt={data.original_title}
+                    ></Image>
+                    <div className="absolute left-[140px] bottom-[158px] w-[302px] text-[#FAFAFA] ">
+                      <p className="">Now Playing:</p>
+                      {data.original_title}
+                      <p className="flex text-[16px] items-center gap-1">
+                        <img className="size-7" src="star.svg" alt="" />
+                        <span className="text-[18px] font-bold flex">
+                          {" "}
+                          {data.vote_average.toFixed(1)}
+                        </span>{" "}
+                        /10
+                      </p>
+                      <p className="text-wrap">{data.overview}</p>
+                      <Button variant={"secondary"} className="">
+                        <PlayIcon />
+                        Watch Trailer
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Link>
                 <CarouselPrevious className=" absolute top-1/2 translate-y-1/2 left-11" />
                 <CarouselNext className="absolute top-1/2 translate-y-1/2 right-11" />
               </Card>
