@@ -53,16 +53,6 @@ export default async function Detail(props: {
   );
 
   const similar = await moreLikeData.json();
-  // const genresResponse = await fetch(
-  //   `https://api.themoviedb.org/3/genre/movie/${movieId}/list?language=en`,
-  //   {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //   }
-  // );
-  // const genresData = await genresResponse.json();
 
   const trailerData = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US&page=1`,
@@ -73,15 +63,24 @@ export default async function Detail(props: {
       },
     }
   );
-
   const trailer = await trailerData.json();
+  const officialTrailer = trailer.results.find((video: TrailerType) => {
+    return video.type === "Trailer";
+  });
+  const director = actorsData.crew.find((jod: CrewType) => {
+    return jod.job === "Director";
+  });
+
+  const writers = actorsData.crew.find((writer: CrewType) => {
+    return writer.job === "Writer";
+  });
   const voteCount = data.vote_count / 1000;
   const durationHour = data.runtime / 60;
   const duration = data.runtime % 60;
-  console.log(actorsData.crew);
+  // console.log(jod.job);
 
   return (
-    <div className="w-[1400px] px-[80px] flex flex-col justify-between items-center gap-6 ">
+    <div className="w-[1400px] flex flex-col justify-between items-center gap-6 m-auto">
       <div className="w-full px-20 flex justify-between">
         <div>
           <p>{data.original_title}</p>
@@ -94,13 +93,13 @@ export default async function Detail(props: {
             <h2>Rating</h2>
             <img src="/star.svg" alt="" className="w-[30px] h-[50px]" />
           </div>
-          <p> {data.vote_average}/10</p>
+          <p> {data.vote_average.toFixed(1)}/10</p>
           <p className="text-[10px]"> {voteCount.toFixed(1)}k</p>
         </div>
       </div>
-      <div className="flex gap-2.5 m-auto">
+      <div className="flex gap-5 m-auto">
         <Image
-          className="w-[300px] h-[450px] cursor-pointer rounded-lg"
+          className="w-[350px] h-[450px] cursor-pointer rounded-lg"
           width={1000}
           height={1000}
           src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}
@@ -116,18 +115,18 @@ export default async function Detail(props: {
               alt={data.original_title}
               priority
             />
-            <DialogTrigger className="absolute bottom-4 left-8 text-white flex">
+            <DialogTrigger className="absolute bottom-4 left-8 text-white flex items-center gap-4">
               {/* <Button variant={"secondary"} className=""> */}
               <PlayIcon className="rounded-full w-9 h-9 bg-white p-2 text-black opacity-100" />
               Play trailer
               {/* </Button> */}
             </DialogTrigger>
           </div>
-          <DialogContent className="w-[700px] bg-secondary ">
+          <DialogContent className="w-[900px] bg-secondary ">
             <DialogTitle className="">{""}</DialogTitle>
             {/* <DialogTitle className="">{trailer.results[0].name}</DialogTitle> */}
             <iframe
-              src={`https://www.youtube.com/embed/${trailer.results[0].key}`}
+              src={`https://www.youtube.com/embed/${officialTrailer.key}`}
               width={460}
               height={300}
               className=""
@@ -151,20 +150,20 @@ export default async function Detail(props: {
         <p>{data.overview}</p>
 
         <p className="flex gap-5">
-          <span className="font-bold"> {actorsData.crew[0].job} </span>
-          {actorsData.crew[0].name}
+          <span className="font-bold"> Director: </span>
+          {director?.name}
         </p>
         <p className="flex gap-5">
-          <span className="font-bold"> {actorsData.crew[9].job} </span>
-          {actorsData.crew[9].name}
+          <span className="font-bold"> Writers: </span>
+          {writers?.name}
         </p>
-        <p className="flex gap-5">
-          <span className="font-bold"> Stars </span>
+        <h5 className="flex gap-5">
+          <span className="font-bold"> Stars: </span>
 
           {actorsData.cast.slice(0, 5).map((actor: CastType) => {
             return <p key={actor.id}>{actor.name}</p>;
           })}
-        </p>
+        </h5>
       </div>
     </div>
   );
