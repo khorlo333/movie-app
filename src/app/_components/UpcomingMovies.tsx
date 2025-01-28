@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Cardd from "./Cardd";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
 
@@ -17,13 +17,13 @@ export default async function UpcomingMovies() {
 
   return (
     <div>
-      <div className="w-[1400px] px-[80px] flex justify-between items-center ">
+      <div className="w-full flex justify-between items-center ">
         <h3>Upcoming</h3>
         <p className="flex">
-          See more <ArrowRight />{" "}
+          See more <ArrowRight />
         </p>
       </div>
-      <Card data={upcomingData.results} />
+      <Cardd data={upcomingData.results} />
     </div>
   );
 }

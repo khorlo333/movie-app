@@ -2,11 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default async function Card({ data }: { data: MovieType[] }) {
+export default async function Cardd(
+  // props: {
+  //   param: Promise<{ data: MovieType[] }>;
+  //   param1: Promise<{ name: string }>;
+  // }
+  { data }: { data: MovieType[] }
+) {
+  // const { data } = await props.param;
+  // const { name } = await props.param1;
+  // console.log(name);
   return (
     <div className="flex max-w-[1400px] px-[80px] flex-wrap justify-between ">
       {/* <div className="w-full flex justify-between items-center ">
-        <h3>{}</h3>
+        <h3>{name}</h3>
         <p className="flex">
           See more <ArrowRight />
         </p>

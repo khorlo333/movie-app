@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Cardd from "./Cardd";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
 
@@ -22,7 +22,7 @@ export default async function PopularMovies() {
           See more <ArrowRight />{" "}
         </p>
       </div>
-      <Card data={popularData.results} />
+      <Cardd data={popularData.results} />
     </div>
   );
 }

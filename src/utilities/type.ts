@@ -13,6 +13,7 @@ type MovieType = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  type: string;
 };
 type GenreType = {
   id: number;

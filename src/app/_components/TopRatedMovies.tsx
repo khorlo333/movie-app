@@ -1,4 +1,4 @@
-import Card from "../_components/Card";
+import Cardd from "./Cardd";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
 
@@ -22,7 +22,7 @@ export default async function TopRated() {
           See more <ArrowRight />{" "}
         </p>
       </div>
-      <Card data={topRatedData.results} />
+      <Cardd data={topRatedData.results} />
     </div>
   );
 }

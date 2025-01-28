@@ -1,23 +1,22 @@
 import Link from "next/link";
-import Navigation from "@/app/_components/NavigationBar";
 import Image from "next/image";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayIcon } from "lucide-react";
 import React from "react";
 import { token } from "@/utilities/token";
 
-export default async function Detail(props: {
-  params: Promise<{ movieId: MovieType }>;
-}) {
-  const { movieId } = await props.params;
+export default async function Detail(
+  // { movieId }: { movieId: MovieType[] }
+  props: {
+    param: Promise<{ movieId: string }>;
+  }
+) {
+  const { movieId } = await props.param;
   const getData = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
     {
@@ -165,6 +164,48 @@ export default async function Detail(props: {
           })}
         </h5>
       </div>
+      {/* <div className="w-full flex justify-between items-center ">
+        <h3>{}</h3>
+        <p className="flex">
+          See more <ArrowRight />
+        </p>
+      </div>
+      <div>
+        {similar.slice(0, 5).map((similarMovies: MovieType) => {
+          return (
+            <Link
+              href={`/${movieId}`}
+              key={similarMovies.id}
+              className=" w-[230px] object-contain bg-secondary my-5"
+            >
+              <div className="max-w-[230px] h-[380px] rounded-2 ">
+                <img
+                  className="w-[100%] h-[95%] object-cover rounded-2  "
+                  src={
+                    "https://image.tmdb.org/t/p/original/" +
+                    similarMovies.poster_path
+                  }
+                  alt=""
+                />
+              </div>
+              <p className="text-[12px] flex items-center justify-start ">
+                <span className="text-[14px] font-bold flex justify-center items-center">
+                  <Image
+                    alt={similarMovies.original_title}
+                    width={1000}
+                    height={1000}
+                    src={"star.svg"}
+                    className="w-4 h-4 flex items-center justify-center"
+                  />
+                  {similarMovies.vote_average.toFixed(1)}
+                </span>
+                /10
+              </p>
+              <h3 className="text-[18px]">{similarMovies.original_title}</h3>
+            </Link>
+          );
+        })}
+      </div> */}
     </div>
   );
 }
