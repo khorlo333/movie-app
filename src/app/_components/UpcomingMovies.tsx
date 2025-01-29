@@ -1,6 +1,7 @@
 import Cardd from "./Cardd";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default async function UpcomingMovies() {
   const upcomingResponse = await fetch(
@@ -19,9 +20,11 @@ export default async function UpcomingMovies() {
     <div>
       <div className="w-full flex justify-between items-center ">
         <h3>Upcoming</h3>
-        <p className="flex">
-          See more <ArrowRight />
-        </p>
+        <Link href={`/category/upcoming`}>
+          <p className="flex">
+            See more <ArrowRight />
+          </p>
+        </Link>
       </div>
       <Cardd data={upcomingData.results} />
     </div>

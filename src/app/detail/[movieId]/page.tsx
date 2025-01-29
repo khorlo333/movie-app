@@ -13,10 +13,10 @@ import { token } from "@/utilities/token";
 export default async function Detail(
   // { movieId }: { movieId: MovieType[] }
   props: {
-    param: Promise<{ movieId: string }>;
+    params: Promise<{ movieId: MovieType[] }>;
   }
 ) {
-  const { movieId } = await props.param;
+  const { movieId } = await props.params;
   const getData = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
     {
@@ -63,20 +63,19 @@ export default async function Detail(
     }
   );
   const trailer = await trailerData.json();
-  const officialTrailer = trailer.results.find((video: TrailerType) => {
+  const officialTrailer = trailer.results?.find((video: TrailerType) => {
     return video.type === "Trailer";
   });
-  const director = actorsData.crew.find((jod: CrewType) => {
+  const director = actorsData.crew?.find((jod: CrewType) => {
     return jod.job === "Director";
   });
 
-  const writers = actorsData.crew.find((writer: CrewType) => {
+  const writers = actorsData.crew?.find((writer: CrewType) => {
     return writer.job === "Writer";
   });
   const voteCount = data.vote_count / 1000;
   const durationHour = data.runtime / 60;
   const duration = data.runtime % 60;
-  // console.log(jod.job);
 
   return (
     <div className="w-[1400px] flex flex-col justify-between items-center gap-6 m-auto">
@@ -164,14 +163,14 @@ export default async function Detail(
           })}
         </h5>
       </div>
-      {/* <div className="w-full flex justify-between items-center ">
+      <div className="w-full flex justify-between items-center ">
         <h3>{}</h3>
         <p className="flex">
           See more <ArrowRight />
         </p>
       </div>
-      <div>
-        {similar.slice(0, 5).map((similarMovies: MovieType) => {
+      <div className=" flex gap-5">
+        {similar.results.slice(0, 5).map((similarMovies: MovieType) => {
           return (
             <Link
               href={`/${movieId}`}
@@ -194,7 +193,7 @@ export default async function Detail(
                     alt={similarMovies.original_title}
                     width={1000}
                     height={1000}
-                    src={"star.svg"}
+                    src={"../star.svg"}
                     className="w-4 h-4 flex items-center justify-center"
                   />
                   {similarMovies.vote_average.toFixed(1)}
@@ -205,7 +204,7 @@ export default async function Detail(
             </Link>
           );
         })}
-      </div> */}
+      </div>
     </div>
   );
 }

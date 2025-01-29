@@ -25,7 +25,7 @@ export default async function Cardd(
           <Link
             href={`/detail/${movie.id}`}
             key={movie.id}
-            className=" w-[230px] object-contain bg-secondary my-5"
+            className=" w-[230px] object-contain bg-secondary my-5 rounded-lg overflow-hidden"
           >
             <div className="max-w-[230px] h-[380px] rounded-2 ">
               <img

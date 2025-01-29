@@ -1,6 +1,7 @@
 import Cardd from "./Cardd";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default async function TopRated() {
   const topRatedResponse = await fetch(
@@ -18,9 +19,11 @@ export default async function TopRated() {
     <div>
       <div className="w-[1400px] px-[80px] flex justify-between items-center ">
         <h3>Top rated</h3>
-        <p className="flex">
-          See more <ArrowRight />{" "}
-        </p>
+        <Link href={`/category/top_rated`}>
+          <p className="flex">
+            See more <ArrowRight />{" "}
+          </p>
+        </Link>
       </div>
       <Cardd data={topRatedData.results} />
     </div>

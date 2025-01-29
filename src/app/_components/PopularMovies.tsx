@@ -1,6 +1,7 @@
 import Cardd from "./Cardd";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default async function PopularMovies() {
   const popularResponse = await fetch(
@@ -18,9 +19,11 @@ export default async function PopularMovies() {
     <div>
       <div className="w-[1400px] px-[80px] flex justify-between items-center ">
         <h3>Popular</h3>
-        <p className="flex">
-          See more <ArrowRight />{" "}
-        </p>
+        <Link href={`/category/popular`}>
+          <p className="flex">
+            See more <ArrowRight />{" "}
+          </p>
+        </Link>
       </div>
       <Cardd data={popularData.results} />
     </div>
