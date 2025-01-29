@@ -42,7 +42,7 @@ export async function Genre() {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup className="w-[600px] flex flex-wrap">
-            {genresData.genres.map((data: GenreType) => {
+            {genresData.genres?.map((data: GenreType) => {
               return (
                 <DropdownMenuItem
                   key={data.id}

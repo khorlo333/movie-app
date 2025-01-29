@@ -21,10 +21,10 @@ export default async function (props: {
   return (
     <div>
       <div className="grid grid-cols-5 gap-[32px] max-w-[1440px]">
-        {data.results.slice(0, 20).map((d: MovieType, index: number) => {
+        {data.results?.slice(0, 20).map((d: MovieType, index: number) => {
           return (
             <Link
-              href={`/${d.id}`}
+              href={`/detail/${d.id}`}
               key={d.id}
               className="w-[239px] h-[470px] bg-secondary rounded-[6px] overflow-hidden"
             >
@@ -39,11 +39,11 @@ export default async function (props: {
               </div>
               <div className="p-4">
                 <div className="text-[12px] mt-6 flex align-middle">
-                  <img src="star.svg" alt="" />
+                  <img src="/star.svg" alt="" />
                   <p>
                     <span className="text-[14px] font-bold">
                       {" "}
-                      {d.vote_average.toFixed(1)}
+                      {d.vote_average?.toFixed(1)}
                     </span>{" "}
                     /10
                   </p>

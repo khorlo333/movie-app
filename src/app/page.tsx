@@ -9,10 +9,10 @@ export default async function Home() {
   return (
     <div className="flex flex-col justify-center items-center my-5 ">
       <NowPlaying />
-      <UpcomingMovies />
-      <PopularMovies />
-      <TopRated />
-      {/* <Movies /> */}
+      {/* <UpcomingMovies /> */}
+      {/* <PopularMovies /> */}
+      {/* <TopRated /> */}
+      <Movies />
     </div>
   );
 }

@@ -91,8 +91,8 @@ export default async function Detail(
             <h2>Rating</h2>
             <img src="/star.svg" alt="" className="w-[30px] h-[50px]" />
           </div>
-          <p> {data.vote_average.toFixed(1)}/10</p>
-          <p className="text-[10px]"> {voteCount.toFixed(1)}k</p>
+          <p> {data.vote_average?.toFixed(1)}/10</p>
+          <p className="text-[10px]"> {voteCount?.toFixed(1)}k</p>
         </div>
       </div>
       <div className="flex gap-5 m-auto">
@@ -124,7 +124,7 @@ export default async function Detail(
             <DialogTitle className="">{""}</DialogTitle>
             {/* <DialogTitle className="">{trailer.results[0].name}</DialogTitle> */}
             <iframe
-              src={`https://www.youtube.com/embed/${officialTrailer.key}`}
+              src={`https://www.youtube.com/embed/${officialTrailer?.key}`}
               width={460}
               height={300}
               className=""
@@ -164,16 +164,18 @@ export default async function Detail(
         </h5>
       </div>
       <div className="w-full flex justify-between items-center ">
-        <h3>{}</h3>
-        <p className="flex">
-          See more <ArrowRight />
-        </p>
+        <h3>More like this</h3>
+        <Link href={`/similar`}>
+          <p className="flex">
+            See more <ArrowRight />
+          </p>
+        </Link>
       </div>
       <div className=" flex gap-5">
         {similar.results.slice(0, 5).map((similarMovies: MovieType) => {
           return (
             <Link
-              href={`/${movieId}`}
+              href={`/detail/${similarMovies.id}`}
               key={similarMovies.id}
               className=" w-[230px] object-contain bg-secondary my-5"
             >

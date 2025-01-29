@@ -1,6 +1,7 @@
 import Card from "./Cardd";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default async function Movies() {
   const popularResponse = await fetch(
@@ -40,25 +41,31 @@ export default async function Movies() {
       <div>
         <div className="w-full px-20 flex justify-between items-center ">
           <h3>Upcoming</h3>
-          <p className="flex">
-            See more <ArrowRight />
-          </p>
+          <Link href={`/category/upcoming`}>
+            <p className="flex">
+              See more <ArrowRight />
+            </p>
+          </Link>
         </div>
         <Card data={upcomingData.results}></Card>
 
         <div className="w-full px-20 flex justify-between items-center ">
           <h3>Popular</h3>
-          <p className="flex">
-            See more <ArrowRight />{" "}
-          </p>
+          <Link href={`/category/popular`}>
+            <p className="flex">
+              See more <ArrowRight />{" "}
+            </p>
+          </Link>
         </div>
         <Card data={popularData.results}></Card>
 
         <div className="w-full px-20 flex justify-between items-center ">
           <h3>Top rated</h3>
-          <p className="flex">
-            See more <ArrowRight />{" "}
-          </p>
+          <Link href={`/category/top_rated`}>
+            <p className="flex">
+              See more <ArrowRight />{" "}
+            </p>
+          </Link>
         </div>
         <Card data={topRatedData.results}></Card>
       </div>
