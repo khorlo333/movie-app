@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowDown, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import Image from "next/image";
 import ThemeChanger from "./ThemeChanger";
 import { Genre } from "./Genre";

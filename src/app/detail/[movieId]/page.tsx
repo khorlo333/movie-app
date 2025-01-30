@@ -106,7 +106,7 @@ export default async function Detail(
         <Dialog>
           <div className="relative">
             <Image
-              className="w-full h-[450px] cursor-pointer rounded-lg bg-black opacity-60"
+              className="w-full h-[450px] cursor-pointer rounded-lg"
               width={1000}
               height={1000}
               src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
@@ -134,13 +134,13 @@ export default async function Detail(
       </div>
       <div className="w-full px-20">
         <div className="flex justify-start gap-4">
-          {data.genres.map((genre: GenreType) => {
+          {data.genres?.map((genre: GenreType) => {
             return (
               <p
                 key={genre.id}
                 className="border border-solid rounded-xl px-2 "
               >
-                {genre.name}
+                {genre?.name}
               </p>
             );
           })}
@@ -165,7 +165,7 @@ export default async function Detail(
       </div>
       <div className="w-full flex justify-between items-center ">
         <h3>More like this</h3>
-        <Link href={`/similar`}>
+        <Link href={`/similar/${movieId}`}>
           <p className="flex">
             See more <ArrowRight />
           </p>

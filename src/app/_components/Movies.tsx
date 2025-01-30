@@ -1,4 +1,4 @@
-import Card from "./Cardd";
+import Card from "./Card";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";

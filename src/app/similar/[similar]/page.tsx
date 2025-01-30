@@ -7,7 +7,6 @@ export default async function (props: {
   params: Promise<{ similar: string }>;
 }) {
   const { similar } = await props.params;
-  console.log(similar);
   const moreLikeData = await fetch(
     `https://api.themoviedb.org/3/movie/${similar}/similar?language=en-US&page=1`,
     {
@@ -19,8 +18,9 @@ export default async function (props: {
   );
 
   const similarMovies = await moreLikeData.json();
+
   return (
-    <div className=" flex gap-5">
+    <div className="w-[1400px] grid grid-cols-5 m-auto gap-5">
       {similarMovies.results?.map((similarMovie: MovieType) => {
         return (
           <Link
