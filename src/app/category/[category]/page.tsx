@@ -1,3 +1,4 @@
+import PaginationOfMovies from "@/app/_components/Pagination";
 import { token } from "@/utilities/token";
 
 import Image from "next/image";
@@ -21,7 +22,7 @@ export default async function (props: {
   return (
     <div>
       <div className="grid grid-cols-5 gap-[32px] max-w-[1440px]">
-        {data.results?.slice(0, 20).map((d: MovieType, index: number) => {
+        {data.results?.slice(0, 20).map((d: MovieType) => {
           return (
             <Link
               href={`/detail/${d.id}`}
@@ -57,6 +58,7 @@ export default async function (props: {
           );
         })}
       </div>
+      <PaginationOfMovies link={`/category/upcoming`} />
     </div>
   );
 }

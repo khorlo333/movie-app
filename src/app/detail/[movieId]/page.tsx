@@ -158,7 +158,7 @@ export default async function Detail(
         <h5 className="flex gap-5">
           <span className="font-bold"> Stars: </span>
 
-          {actorsData.cast.slice(0, 5).map((actor: CastType) => {
+          {actorsData.cast?.slice(0, 5).map((actor: CastType) => {
             return <p key={actor.id}>{actor.name}</p>;
           })}
         </h5>

@@ -1,9 +1,10 @@
-import { Input } from "@/components/ui/input";
+// import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import ThemeChanger from "./ThemeChanger";
 import { Genre } from "./Genre";
 import Link from "next/link";
+import Input from "./Input";
 
 export default function Navigation() {
   return (
@@ -22,11 +23,12 @@ export default function Navigation() {
           <Genre />
           <div className="flex border-solid border-2 rounded-lg items-center">
             <Search className="pl-1" />
-            <Input
+            <Input />
+            {/* <Input
               type="text"
               placeholder="Search"
               className="border-none shadow-none ml-[-8px] focus:outline-none focus-visible:ring-0"
-            />
+            /> */}
           </div>
         </div>
         <ThemeChanger />
