@@ -104,7 +104,7 @@ export default async function Detail(
           alt={data.original_title}
         />
         <Dialog>
-          <div className="relative">
+          <div className="relative bg-black opacity-60">
             <Image
               className="w-full h-[450px] cursor-pointer rounded-lg"
               width={1000}
@@ -115,7 +115,7 @@ export default async function Detail(
             />
             <DialogTrigger className="absolute bottom-4 left-8 text-white flex items-center gap-4">
               {/* <Button variant={"secondary"} className=""> */}
-              <PlayIcon className="rounded-full w-9 h-9 bg-white p-2 text-black opacity-100" />
+              <PlayIcon className="rounded-full w-9 h-9 bg-white p-2 text-black" />
               Play trailer
               {/* </Button> */}
             </DialogTrigger>

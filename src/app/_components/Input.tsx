@@ -49,7 +49,7 @@ export default function Input() {
             return (
               <div key={index} className="flex flex-col w-full">
                 <Link
-                  href={`/cardinfo/${movie.id}`}
+                  href={`/detail/${movie.id}`}
                   onClick={() => clickHandler()}
                 >
                   <Card className="w-[545px] gap-5 p-5 rounded-md hover:bg-secondary  flex justify-start ">
@@ -85,7 +85,7 @@ export default function Input() {
               </div>
             );
           })}
-          <Link href={`/search/${search}`}>
+          <Link href={`/search/${":"}`}>
             <Card className="h-[34px] flex items-center justify-center">
               See all results for " search "
             </Card>
