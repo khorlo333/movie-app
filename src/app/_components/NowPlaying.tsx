@@ -38,7 +38,7 @@ export default async function NowPlaying() {
                     <Image
                       width={1000}
                       height={1000}
-                      className="object-fi h-[620px] w-full relative"
+                      className="object-cover h-[620px] w-full relative"
                       src={
                         `https://image.tmdb.org/t/p/` +
                         "original" +

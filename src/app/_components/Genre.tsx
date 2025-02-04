@@ -1,4 +1,5 @@
 import { token } from "@/utilities/token";
+import Link from "next/link";
 
 import {
   DropdownMenu,
@@ -41,16 +42,20 @@ export async function Genre() {
             <p>See lists of movies by genre</p>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuGroup className="w-[600px] flex flex-wrap">
+          <DropdownMenuGroup className="w-[600px] bg-secondary flex flex-wrap">
             {genresData.genres?.map((data: GenreType) => {
               return (
                 <DropdownMenuItem
                   key={data.id}
-                  className="flex overflow-hidden  p-1"
+                  className="flex overflow-hidden p-1"
                 >
-                  <p className="flex gap-6 text-3 border-[1px] rounded-xl cursor-pointer items-center pl-1">
+                  <Link
+                    href={`/genres`}
+                    className=" flex-wrap 
+                 flex gap-6 text-3 border-[1px] rounded-xl cursor-pointer items-center pl-1"
+                  >
                     {data?.name} <ChevronRight className="size-4" />
-                  </p>
+                  </Link>
                 </DropdownMenuItem>
               );
             })}
