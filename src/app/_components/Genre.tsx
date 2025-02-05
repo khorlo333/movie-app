@@ -28,40 +28,34 @@ export async function Genre() {
     // console.log(genresData);
   }
   return (
-    <div>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline">
-            <ChevronDown />
-            Genre
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>
-            Genres
-            <p>See lists of movies by genre</p>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup className="w-[600px] bg-secondary flex flex-wrap">
-            {genresData.genres?.map((data: GenreType) => {
-              return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">
+          <ChevronDown />
+          Genre
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>
+          Genres
+          <p>See lists of movies by genre</p>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup className="w-[600px] bg-secondary flex flex-wrap">
+          {genresData.genres?.map((data: GenreType) => {
+            return (
+              <Link href={`/genres/${data.id}`} key={data.id}>
                 <DropdownMenuItem
-                  key={data.id}
-                  className="flex overflow-hidden p-1"
+                  className=" overflow-hidden p-1 flex-wrap 
+               flex gap-6 text-3 border-[1px] rounded-xl cursor-pointer items-center pl-1"
                 >
-                  <Link
-                    href={`/genres`}
-                    className=" flex-wrap 
-                 flex gap-6 text-3 border-[1px] rounded-xl cursor-pointer items-center pl-1"
-                  >
-                    {data?.name} <ChevronRight className="size-4" />
-                  </Link>
+                  {data?.name} <ChevronRight className="size-4" />
                 </DropdownMenuItem>
-              );
-            })}
-          </DropdownMenuGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </div>
+              </Link>
+            );
+          })}
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

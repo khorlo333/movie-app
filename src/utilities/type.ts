@@ -50,4 +50,5 @@ type CastType = {
 type TrailerType = {
   id: string;
   type: string;
+  key: string;
 };
