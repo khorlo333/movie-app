@@ -3,7 +3,7 @@ import Movies from "./_components/Movies";
 
 export default async function Home() {
   return (
-    <div className="flex flex-col justify-center items-center my-5 ">
+    <div className="flex flex-col justify-center items-center ">
       <NowPlaying />
       <Movies />
     </div>

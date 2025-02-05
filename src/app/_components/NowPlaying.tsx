@@ -39,7 +39,7 @@ export default function NowPlaying() {
   );
   return (
     <Carousel
-      className="w-full"
+      className="w-full h-[600px] items-center justify-end p-0"
       opts={{ loop: true }}
       plugins={[plugin.current]}
       onMouseEnter={plugin.current.stop}
@@ -55,7 +55,7 @@ export default function NowPlaying() {
                     <Image
                       width={1000}
                       height={1000}
-                      className="object-cover h-[620px] w-full relative"
+                      className="object-cover h-[620px] w-full relative p-0"
                       src={
                         `https://image.tmdb.org/t/p/` +
                         "original" +

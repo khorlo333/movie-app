@@ -41,7 +41,7 @@ export default function Input() {
         placeholder="search"
         value={search}
         onChange={addHandler}
-        className="w-[355px] h-[36px] p-[20px] rounded-md "
+        className=""
       />
       {search ? (
         <div className="absolute top-[40px]">

@@ -30,7 +30,10 @@ export async function Genre() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">
+        <Button
+          variant="outline"
+          className="h-[36px] w-[97px] py-2 px-4 rounded-[6px]"
+        >
           <ChevronDown />
           Genre
         </Button>
