@@ -78,7 +78,7 @@ export default async function Detail(
   const duration = data.runtime % 60;
 
   return (
-    <div className="w-[1400px] flex flex-col justify-between items-center gap-6 m-auto">
+    <div className="max-w-[1400px] flex flex-col justify-between items-center gap-6 m-auto">
       <div className="w-full px-20 flex justify-between">
         <div>
           <p>{data.original_title}</p>
@@ -95,7 +95,7 @@ export default async function Detail(
           <p className="text-[10px]"> {voteCount?.toFixed(1)}k</p>
         </div>
       </div>
-      <div className="flex gap-5 m-auto">
+      <div className="w-full px-20 flex gap-5 m-auto">
         <Image
           className="w-[350px] h-[450px] cursor-pointer rounded-lg"
           width={1000}
@@ -104,9 +104,9 @@ export default async function Detail(
           alt={data.original_title}
         />
         <Dialog>
-          <div className="relative bg-black opacity-60">
+          <div className="w-full overflow-hidden rounded-lg relative bg-black opacity-70">
             <Image
-              className="w-full h-[450px] cursor-pointer rounded-lg"
+              className="w-full h-[450px] cursor-pointer overflow-hidden rounded-lg"
               width={1000}
               height={1000}
               src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
@@ -132,7 +132,7 @@ export default async function Detail(
           </DialogContent>
         </Dialog>
       </div>
-      <div className="w-full px-20">
+      <div className="w-full flex flex-col gap-5 px-20">
         <div className="flex justify-start gap-4">
           {data.genres?.map((genre: GenreType) => {
             return (
@@ -147,15 +147,15 @@ export default async function Detail(
         </div>
         <p>{data.overview}</p>
 
-        <p className="flex gap-5">
+        <p className="flex gap-5 border-b-[1px] border-secondary">
           <span className="font-bold"> Director: </span>
           {director?.name}
         </p>
-        <p className="flex gap-5">
+        <p className="flex gap-5 border-b-[1px] border-secondary">
           <span className="font-bold"> Writers: </span>
           {writers?.name}
         </p>
-        <h5 className="flex gap-5">
+        <h5 className="flex gap-5 border-b-[1px] border-secondary">
           <span className="font-bold"> Stars: </span>
 
           {actorsData.cast?.slice(0, 5).map((actor: CastType) => {
@@ -163,7 +163,7 @@ export default async function Detail(
           })}
         </h5>
       </div>
-      <div className="w-full flex justify-between items-center ">
+      <div className="w-full px-20 flex justify-between items-center ">
         <h3>More like this</h3>
         <Link href={`/similar/${movieId}`}>
           <p className="flex">

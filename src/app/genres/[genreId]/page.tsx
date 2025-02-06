@@ -113,7 +113,7 @@ export default function ({ params }: { params: Promise<{ genreId: number }> }) {
           <p className="flex flex-col items-start gap-8">Movies</p>
           <div className="w-[806px] items-start flex flex-wrap self-stretch gap-8">
             {movies?.map((d: MovieType) => (
-              <Link key={d.id} href={`/${d.id}`}>
+              <Link key={d.id} href={`/detail/${d.id}`}>
                 <div className="bg-secondary rounded-[8px] overflow-hidden w-[160px] h-[320px] cursor-pointer hover:opacity-50 ease-in">
                   <Image
                     src={`https://image.tmdb.org/t/p/original/${d.poster_path}`}

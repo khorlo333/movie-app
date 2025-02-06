@@ -37,7 +37,7 @@ export default async function Movies() {
   const upcomingData = await upcomingResponse.json();
 
   return (
-    <div className="w-[1400px]">
+    <div className="w-[1400px] mt-8">
       <div>
         <div className="w-full px-20 flex justify-between items-center ">
           <h3>Upcoming</h3>

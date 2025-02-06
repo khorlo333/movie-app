@@ -49,8 +49,8 @@ export default function NowPlaying() {
         {data?.slice(0, 10).map((data: MovieType) => {
           return (
             <CarouselItem key={data.id} className="w-full">
-              <Card className="relative w-full">
-                <CardContent className="w-full">
+              <div className="relative w-full">
+                <div className="w-full">
                   <Link href={`/detail/${data.id}`}>
                     <Image
                       width={1000}
@@ -78,10 +78,10 @@ export default function NowPlaying() {
                     <p className="text-wrap">{data.overview}</p>
                     <TrailerCarousel data={data.id} />
                   </div>
-                </CardContent>
+                </div>
                 <CarouselPrevious className=" absolute top-1/2 translate-y-1/2 left-11" />
                 <CarouselNext className="absolute top-1/2 translate-y-1/2 right-11" />
-              </Card>
+              </div>
             </CarouselItem>
           );
         })}
