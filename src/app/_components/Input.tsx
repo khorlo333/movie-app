@@ -85,7 +85,7 @@ export default function Input() {
               </div>
             );
           })}
-          <Link href={`/search/${":"}`}>
+          <Link href={`/search/${search}`}>
             <Card className="h-[34px] flex items-center justify-center">
               See all results for " search "
             </Card>

@@ -10,12 +10,9 @@ import { ArrowRight, PlayIcon } from "lucide-react";
 import React from "react";
 import { token } from "@/utilities/token";
 
-export default async function Detail(
-  // { movieId }: { movieId: MovieType[] }
-  props: {
-    params: Promise<{ movieId: MovieType[] }>;
-  }
-) {
+export default async function Detail(props: {
+  params: Promise<{ movieId: MovieType[] }>;
+}) {
   const { movieId } = await props.params;
   const getData = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
@@ -26,7 +23,6 @@ export default async function Detail(
       },
     }
   );
-
   const data = await getData.json();
 
   const actors = await fetch(
@@ -38,7 +34,6 @@ export default async function Detail(
       },
     }
   );
-
   const actorsData = await actors.json();
 
   const moreLikeData = await fetch(
@@ -50,7 +45,6 @@ export default async function Detail(
       },
     }
   );
-
   const similar = await moreLikeData.json();
 
   const trailerData = await fetch(
@@ -66,10 +60,9 @@ export default async function Detail(
   const officialTrailer = trailer.results?.find((video: TrailerType) => {
     return video.type === "Trailer";
   });
-  const director = actorsData.crew?.find((jod: CrewType) => {
-    return jod.job === "Director";
+  const director = actorsData.crew?.find((job: CrewType) => {
+    return job.job === "Director";
   });
-
   const writers = actorsData.crew?.find((writer: CrewType) => {
     return writer.job === "Writer";
   });
@@ -114,15 +107,12 @@ export default async function Detail(
               priority
             />
             <DialogTrigger className="absolute bottom-4 left-8 text-white flex items-center gap-4">
-              {/* <Button variant={"secondary"} className=""> */}
               <PlayIcon className="rounded-full w-9 h-9 bg-white p-2 text-black" />
               Play trailer
-              {/* </Button> */}
             </DialogTrigger>
           </div>
           <DialogContent className="w-[900px] bg-secondary ">
             <DialogTitle className="">{""}</DialogTitle>
-            {/* <DialogTitle className="">{trailer.results[0].name}</DialogTitle> */}
             <iframe
               src={`https://www.youtube.com/embed/${officialTrailer?.key}`}
               width={460}
@@ -177,9 +167,9 @@ export default async function Detail(
             <Link
               href={`/detail/${similarMovies.id}`}
               key={similarMovies.id}
-              className=" w-[230px] object-contain bg-secondary my-5"
+              className=" w-[230px] object-contain bg-secondary rounded-2 overflow-hidden my-5"
             >
-              <div className="max-w-[230px] h-[380px] rounded-2 ">
+              <div className="max-w-[230px] h-[380px] overflow-hidden  rounded-2 ">
                 <img
                   className="w-[100%] h-[95%] object-cover rounded-2  "
                   src={
