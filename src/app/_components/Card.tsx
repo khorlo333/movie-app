@@ -16,16 +16,16 @@ export default async function Card({ data }: { data: MovieType[] }) {
           <Link
             href={`/detail/${movie.id}`}
             key={movie.id}
-            className=" w-[230px] object-contain bg-secondary my-5"
+            className=" w-[230px] object-contain rounded-lg overflow-hidden bg-secondary my-5"
           >
-            <div className="max-w-[230px] h-[380px] rounded-2 ">
+            <div className="max-w-[230px] h-[380px] rounded-2 overflow-hidden">
               <img
                 className="w-[100%] h-[95%] object-cover rounded-2  "
                 src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}
                 alt=""
               />
             </div>
-            <p className="text-[12px] flex items-center justify-start ">
+            <p className="text-[12px] flex items-center justify-start ml-2 ">
               <span className="text-[14px] font-bold flex justify-center items-center">
                 <Image
                   alt={movie.original_title}
