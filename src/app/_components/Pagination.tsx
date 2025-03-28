@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 export default function PaginationOfMovies({ link }: { link: string }) {
   const router = useRouter();
   const clickHandler = () => {
-    let number = 1;
+    const number = 1;
     router.push(`${link}?page=${number + 1}`);
   };
 

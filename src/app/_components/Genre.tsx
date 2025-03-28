@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { GenreType } from "@/utilities/type";
 
 export async function Genre() {
   const genresResponse = await fetch(

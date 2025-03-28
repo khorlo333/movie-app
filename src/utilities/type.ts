@@ -1,4 +1,4 @@
-type MovieType = {
+export type MovieType = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: [];
@@ -15,11 +15,11 @@ type MovieType = {
   vote_count: number;
   type: string;
 };
-type GenreType = {
+export type GenreType = {
   id: number;
   name: string;
 };
-type CrewType = {
+export type CrewType = {
   adult: boolean;
   gender: number;
   id: number;
@@ -32,7 +32,7 @@ type CrewType = {
   department: string;
   job: string;
 };
-type CastType = {
+export type CastType = {
   adult: boolean;
   gender: number;
   id: number;
@@ -47,8 +47,11 @@ type CastType = {
   order: number;
 };
 
-type TrailerType = {
+export type TrailerType = {
   id: string;
   type: string;
   key: string;
+};
+export type PageNumber = {
+  total_pages: number;
 };

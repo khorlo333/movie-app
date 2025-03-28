@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { token } from "@/utilities/token";
 import { ArrowRight } from "lucide-react";
+import { MovieType } from "@/utilities/type";
+import Image from "next/image";
 
 export default function Input() {
   const [search, setSearch] = useState("");
@@ -53,12 +55,15 @@ export default function Input() {
                   onClick={() => clickHandler()}
                 >
                   <Card className="w-[545px] gap-5 p-5 rounded-md hover:bg-secondary  flex justify-start ">
-                    <img
+                    <Image
+                      width={1000}
+                      height={1000}
                       className="w-[76px] h-[100px] rounded-lg"
                       src={
                         "https://image.tmdb.org/t/p/original/" +
                         movie?.poster_path
                       }
+                      alt=""
                     />
                     <button
                       className="text-[20px] flex flex-col justify-start w-full"
@@ -66,11 +71,7 @@ export default function Input() {
                     >
                       {movie?.original_title}
                       <div className="flex items-center">
-                        <img
-                          className="w-[16px] h-[16px]"
-                          src="/Star.svg"
-                          alt=""
-                        />
+                        <Image width={15} height={15} src="/star.svg" alt="" />
                         {movie.vote_average.toFixed(1)}/10
                       </div>
                       <div className="flex justify-between w-full">
@@ -87,7 +88,7 @@ export default function Input() {
           })}
           <Link href={`/search/${search}`}>
             <Card className="h-[34px] flex items-center justify-center">
-              See all results for " search "
+              See all results for `&quot;` search `&quot;`
             </Card>
           </Link>
         </div>

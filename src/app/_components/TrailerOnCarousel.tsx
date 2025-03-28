@@ -8,10 +8,11 @@ import {
 import React, { useEffect, useState } from "react";
 import { PlayIcon } from "lucide-react";
 import { token } from "@/utilities/token";
+import { TrailerType } from "@/utilities/type";
 
 export default function TrailerCarousel({ data }: { data: number }) {
   const [trailer, setTrailer] = useState<TrailerType | null>(null);
-  const getTrailerData = async () => {
+  const getTrailerData = async (data: number) => {
     const trailerData = await fetch(
       `https://api.themoviedb.org/3/movie/${data}/videos?language=en-US&page=1`,
       {
@@ -28,8 +29,8 @@ export default function TrailerCarousel({ data }: { data: number }) {
     setTrailer(officialTrailer);
   };
   useEffect(() => {
-    getTrailerData();
-  }, []);
+    getTrailerData(data);
+  }, [data]);
   return (
     <Dialog>
       <DialogTrigger className="flex">

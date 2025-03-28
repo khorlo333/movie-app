@@ -1,10 +1,11 @@
 import PaginationOfMovies from "@/app/_components/Pagination";
 import { token } from "@/utilities/token";
+import { MovieType } from "@/utilities/type";
 
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function (props: {
+export default async function Page(props: {
   params: Promise<{ category: string }>;
 }) {
   const { category } = await props.params;
@@ -40,12 +41,11 @@ export default async function (props: {
               </div>
               <div className="p-4">
                 <div className="text-[12px] mt-6 flex align-middle">
-                  <img src="/star.svg" alt="" />
+                  <Image width={15} height={15} src="/star.svg" alt="" />
                   <p>
                     <span className="text-[14px] font-bold">
-                      {" "}
                       {d.vote_average?.toFixed(1)}
-                    </span>{" "}
+                    </span>
                     /10
                   </p>
                 </div>

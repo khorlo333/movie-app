@@ -9,6 +9,13 @@ import {
 import { ArrowRight, PlayIcon } from "lucide-react";
 import React from "react";
 import { token } from "@/utilities/token";
+import {
+  CastType,
+  CrewType,
+  GenreType,
+  MovieType,
+  TrailerType,
+} from "@/utilities/type";
 
 export default async function Detail(props: {
   params: Promise<{ movieId: MovieType[] }>;
@@ -82,7 +89,7 @@ export default async function Detail(props: {
         <div className="text-end">
           <div className="flex justify-center items-center gap-2">
             <h2>Rating</h2>
-            <img src="/star.svg" alt="" className="w-[30px] h-[50px]" />
+            <Image width={15} height={15} src="/star.svg" alt="" />
           </div>
           <p> {data.vote_average?.toFixed(1)}/10</p>
           <p className="text-[10px]"> {voteCount?.toFixed(1)}k</p>
@@ -170,7 +177,9 @@ export default async function Detail(props: {
               className=" w-[230px] object-contain bg-secondary rounded-2 overflow-hidden my-5"
             >
               <div className="max-w-[230px] h-[380px] overflow-hidden  rounded-2 ">
-                <img
+                <Image
+                  width={1000}
+                  height={1000}
                   className="w-[100%] h-[95%] object-cover rounded-2  "
                   src={
                     "https://image.tmdb.org/t/p/original/" +

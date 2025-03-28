@@ -1,6 +1,6 @@
-import { Bold } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { token } from "@/utilities/token";
+import { GenreType } from "@/utilities/type";
 
 import Link from "next/link";
 

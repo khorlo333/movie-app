@@ -1,6 +1,5 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { token } from "@/utilities/token";
 import {
@@ -14,6 +13,7 @@ import Link from "next/link";
 import TrailerCarousel from "./TrailerOnCarousel";
 import React, { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { MovieType } from "@/utilities/type";
 
 export default function NowPlaying() {
   const [data, setData] = useState<MovieType[] | null>(null);
@@ -68,7 +68,7 @@ export default function NowPlaying() {
                     <p className="">Now Playing:</p>
                     {data.original_title}
                     <p className="flex text-[16px] items-center gap-1">
-                      <img className="size-7" src="star.svg" alt="" />
+                      <Image width={15} height={15} src="/star.svg" alt="" />
                       <span className="text-[18px] font-bold flex">
                         {" "}
                         {data.vote_average.toFixed(1)}

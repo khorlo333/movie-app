@@ -1,6 +1,6 @@
+import { MovieType } from "@/utilities/type";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 export default async function Card({ data }: { data: MovieType[] }) {
   return (
@@ -19,7 +19,9 @@ export default async function Card({ data }: { data: MovieType[] }) {
             className=" w-[230px] object-contain rounded-lg overflow-hidden bg-secondary my-5"
           >
             <div className="max-w-[230px] h-[380px] rounded-2 overflow-hidden">
-              <img
+              <Image
+                width={1000}
+                height={1000}
                 className="w-[100%] h-[95%] object-cover rounded-2  "
                 src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}
                 alt=""
