@@ -14,6 +14,7 @@ export default async function Movies() {
     }
   );
   const popularData = await popularResponse.json();
+  // console.log(popularData);
   const topRatedResponse = await fetch(
     "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
     {

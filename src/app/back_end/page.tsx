@@ -18,7 +18,7 @@ export default function Page() {
     <div className="flex flex-wrap max-w-full gap-5">
       {fetchedMovies?.map((movie: MovieType) => {
         return (
-          <div>
+          <div key={movie.id}>
             <div className="max-w-[230px] h-[380px] rounded-2 overflow-hidden">
               <img
                 className="w-[100%] h-[95%] object-cover rounded-2  "
