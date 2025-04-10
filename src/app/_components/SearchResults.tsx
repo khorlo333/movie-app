@@ -54,7 +54,6 @@ export default function SearchResults() {
       const moviesData = await getMovies(query, currentPage);
       setSearchData(moviesData);
 
-      // Filter results based on selected genres
       if (genreIds) {
         const selectedGenres = genreIds.split(",").map((id) => Number(id));
         const filtered = moviesData.results.filter((movie: MovieType) =>
@@ -85,7 +84,6 @@ export default function SearchResults() {
   return (
     <div className="px-[20px] max-w-[1280px] mx-auto">
       <div className="flex gap-8">
-        {/* Left side - Movies */}
         <div className="flex-1">
           <h1 className="text-[24px] font-semibold mb-8">
             Search Results for `&quot;`{query}`&quot;`

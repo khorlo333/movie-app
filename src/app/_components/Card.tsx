@@ -5,12 +5,6 @@ import Link from "next/link";
 export default async function Card({ data }: { data: MovieType[] }) {
   return (
     <div className="flex max-w-[1400px] px-[80px] flex-wrap justify-between ">
-      {/* <div className="w-full flex justify-between items-center ">
-        <h3>{}</h3>
-        <p className="flex">
-          See more <ArrowRight />
-        </p>
-      </div> */}
       {data?.slice(0, 10).map((movie: MovieType) => {
         return (
           <Link

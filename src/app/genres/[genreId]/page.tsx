@@ -23,8 +23,6 @@ export default function Page({
   const searchParams = useSearchParams();
   const genreIds = searchParams.get("genreIds") || "";
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
-
-  // Unwrap `params` correctly
   useEffect(() => {
     async function resolveParams() {
       const resolved = await params;
@@ -32,14 +30,11 @@ export default function Page({
     }
     resolveParams();
   }, [params]);
-
-  // Fetch genres and movies when `params` are resolved or when genreIds change
   useEffect(() => {
     async function fetchGenresAndMovies() {
       if (!resolvedParams) return;
 
       try {
-        // Fetch available genres
         const genreResponse = await fetch(
           "https://api.themoviedb.org/3/genre/movie/list?language=en-US",
           {
@@ -51,8 +46,6 @@ export default function Page({
         );
         const genreData = await genreResponse.json();
         setGenres(genreData.genres);
-
-        // Fetch movies based on selected genres
         const selectedGenres = genreIds ? genreIds : resolvedParams.genreId;
         const movieResponse = await fetch(
           `https://api.themoviedb.org/3/discover/movie?language=en-US&with_genres=${selectedGenres}&page=${page}`,
@@ -70,11 +63,8 @@ export default function Page({
         console.error("Error fetching data:", error);
       }
     }
-
     fetchGenresAndMovies();
   }, [resolvedParams, genreIds, page]);
-
-  // Handle genre selection
   const onValueChange = (values: string[]) => {
     const params = new URLSearchParams();
     if (values.length > 0) {
@@ -85,7 +75,7 @@ export default function Page({
   };
 
   return (
-    <div className="w-[1280px] h-full flex flex-col items-start gap-8 mx-auto">
+    <div className="w-screen h-full flex flex-col items-start gap-8 mx-auto">
       <p className="text-[30px] font-semibold">Search filter</p>
       <div className="flex items-start self-stretch gap-1 h-full">
         <div className="w-[387px] flex flex-col items-start gap-5 text-secondary-foreground">

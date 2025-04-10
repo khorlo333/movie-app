@@ -21,7 +21,7 @@ export default async function Page(props: {
   const similarMovies = await moreLikeData.json();
 
   return (
-    <div className="w-[1400px] grid grid-cols-5 m-auto gap-5">
+    <div className="w-screen grid grid-cols-5 m-auto gap-5">
       {similarMovies.results?.map((similarMovie: MovieType) => {
         return (
           <Link

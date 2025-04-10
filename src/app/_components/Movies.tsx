@@ -43,8 +43,8 @@ export default async function Movies() {
         <div className="w-full px-20 flex justify-between items-center ">
           <h3>Upcoming</h3>
           <Link href={`/category/upcoming`}>
-            <p className="flex">
-              See more <ArrowRight />
+            <p className="flex justify-center items-center">
+              See more <ArrowRight className="size-4" />
             </p>
           </Link>
         </div>
@@ -53,8 +53,8 @@ export default async function Movies() {
         <div className="w-full px-20 flex justify-between items-center ">
           <h3>Popular</h3>
           <Link href={`/category/popular`}>
-            <p className="flex">
-              See more <ArrowRight />{" "}
+            <p className="flex justify-center items-center">
+              See more <ArrowRight className="size-4" />{" "}
             </p>
           </Link>
         </div>
@@ -63,8 +63,8 @@ export default async function Movies() {
         <div className="w-full px-20 flex justify-between items-center ">
           <h3>Top rated</h3>
           <Link href={`/category/top_rated`}>
-            <p className="flex">
-              See more <ArrowRight />{" "}
+            <p className="flex justify-center items-center">
+              See more <ArrowRight className="size-4" />{" "}
             </p>
           </Link>
         </div>
